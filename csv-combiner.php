@@ -2,18 +2,13 @@
 <?php
 
 /**************************************
- * 
- * DATE:01/22/23
- * 
  * This PHP script takes one or more CSV files, combines them, 
  * adds/populate an additional column, then write them to stdout.
  * 
  * PMG Programming Challenge - CSV Combiner 
  * Submitted by Joshua Buhain (JB) 
  * https://github.com/jbuhain/PMGProgrammingChallenge
- * 
 ***************************************/
-
 
 // Check if at least 2 files are provided as arguments
 // JB: Could implement exception handling in the future like when file is not found
@@ -22,14 +17,12 @@ if ($argc < 3) {
     exit;
 }
 
-// Iterate through argv arguments, extract CSV file, add additional column, write to STDOUT
+// Iterate through argv arguments
 for ($i = 1; $i < $argc; $i++) {
-
     $file = $argv[$i];
 
     // Parse CSV file into array
     $fileData = array_map('str_getcsv', file($file));
-
 
     // Iterate through each line of this CSV file 
     foreach ($fileData as $j => $data) {
@@ -47,7 +40,7 @@ for ($i = 1; $i < $argc; $i++) {
         array_shift($fileData);
     }
 
-    // Write this data to STDOUT
+    // Write file data to STDOUT
     foreach ($fileData as $line) {
         fputcsv(STDOUT, $line);
     }
