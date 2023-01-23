@@ -1,3 +1,10 @@
+# Note/Reflection (Joshua Buhain)
+I wrote my script in PHP and completed my unit tests in PHP as well using PHPUnit Framework.
+I had a lot of fun doing this challenge and was a good review on software engineering concepts and text scripting.
+
+To run the unit test, install PHPUnit and run "php combiner_test.php" on the command line.
+The example below specifies how to run my PHP script. 
+
 # CSV Combiner
 
 Write a command line program that takes several CSV files as arguments. Each CSV
