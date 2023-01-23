@@ -2,11 +2,20 @@
 <?php declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 
-class combiner_test extends TestCase
-{
+/**************************************
+ * Unit Tests for csv-combiner. Uses PHPUnit. 
+ *   I ran out of time so I wrote pseudocode. 
+ *     Hope my thought process is clear.
+ *  
+ *     PMG Programming Challenge - CSV Combiner 
+ *   Submitted by Joshua Buhain (JB) 
+ * https://github.com/jbuhain/PMGProgrammingChallenge
+***************************************/
+
+class combiner_test extends TestCase {
 
     public function testCombinerTwoInputs() {
-        // Testing for combining two regular inputs
+        /* Testing for combining two regular inputs */
 
         exec("./csv-combiner.php ./fixtures/accessories.csv ./fixtures/household_cleaners.csv > combined.csv");
 
@@ -17,7 +26,7 @@ class combiner_test extends TestCase
     }
 
     public function testCombinerMultipleInputs() {
-        // Test for inputs > 2
+        /* Test for inputs > 2 */
         exec("./csv-combiner.php ./fixtures/clothing.csv ./fixtures/accessories.csv ./fixtures/household_cleaners.csv > combined.csv");
 
         $combinedCSV = file_get_contents("./combined.csv");
@@ -28,7 +37,7 @@ class combiner_test extends TestCase
 
 
     public function testCombinerDifferentCols() {
-        // Testing for when rows of CSV cols are different
+        /* Testing for when rows of CSV cols are different */
         
         /*
             JB: According to README introduction: 
@@ -38,7 +47,7 @@ class combiner_test extends TestCase
             "This example is provided as one of the ways your code should run...
             It should also be able to handle ... inputs with different columns..."
         
-        Don't these statements contradicts each other? Or did I interpret this wrong...
+            Don't these statements contradicts each other? Or did I interpret this wrong woops
         */
         $condition = true;
         $this->assertTrue($condition);
@@ -69,7 +78,7 @@ class combiner_test extends TestCase
     }
 
     public function testCombinerInvalid() {
-        // Testing for file not found
+        /* Testing for Invalid Inputs */
 
         /* 
             JB: To do this, I would: (pseudocode)
@@ -91,5 +100,4 @@ class combiner_test extends TestCase
         $condition = true;
         $this->assertTrue($condition);
     }
-
 }
